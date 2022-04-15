@@ -19,6 +19,7 @@ namespace lab2
         private bool ledCurr=true;
         private bool pumpCurr=true;
 
+        public Text error;
         public GameObject layer1;
         public GameObject layer2;
 
@@ -29,6 +30,7 @@ namespace lab2
             brokerURI.text = "mqttserver.tk";
             username.text = "bkiot";
             password.text = "12345678";
+            error.text = "";
         }
 
 
@@ -71,6 +73,11 @@ namespace lab2
                 pumpCurr = pump.isOn;
             }
         }
-
+        public void error_message() {
+            error.text = "CONNECTION FAILED!";
+        }
+        public void error_back() {
+            error.text = "";
+        }
     }
 }

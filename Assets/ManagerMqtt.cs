@@ -99,6 +99,7 @@ namespace lab2
 
         protected override void OnConnected()
         {
+            GetComponent<ManagerUI>().error_back();
             GetComponent<ManagerUI>().switch_layer2();
             base.OnConnected();
             SubscribeTopics();
@@ -130,8 +131,11 @@ namespace lab2
         }
 
         protected override void OnConnectionFailed(string errorMessage)
-        {
+        {   
+            Disconnect();
+            GetComponent<ManagerUI>().error_message();
             Debug.Log("CONNECTION FAILED! " + errorMessage);
+
         }
 
         protected override void OnDisconnected()
